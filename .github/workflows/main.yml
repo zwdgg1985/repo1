@@ -1,17 +1,16 @@
-name: CI
-
+name: Repo1workflow
 on: [push]
-
+  
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
+  job1:
+    runs-on: [ubuntu-latest]
     steps:
-    - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+      - name: test
+        run: |
+          echo test
+      - name: send dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PATHOOK }}
+          repository: weide-zhou/ticket16
+          event-type: check
