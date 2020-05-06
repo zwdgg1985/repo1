@@ -21,6 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: check
+        run: |
+          ls -al
       - name: Checkout my-organization/awesome-action
         run: git clone --single-branch --no-tags --depth 1 -b master https://weide-zhou:${{ secrets.PAT2 }}@github.com/weide-zhou/private-action ./.github/actions/private-action
       - name: check files
