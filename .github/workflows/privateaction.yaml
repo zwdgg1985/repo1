@@ -24,10 +24,21 @@ jobs:
       - name: check
         run: |
           ls -al
+          echo top dir ...........
+          cd .github
+          ls -al
+          echo .github dir ............
+
       - name: Checkout my-organization/awesome-action
         run: git clone --single-branch --no-tags --depth 1 -b master https://weide-zhou:${{ secrets.PAT2 }}@github.com/weide-zhou/private-action ./.github/actions/private-action
       - name: check files
         run: |
+          ls -al
+          echo top dir ...........
+          cd .github
+          ls -al
+          echo .github dir ............
+          cd actions
           ls -al
       - uses: ./.github/actions/private-action
         with:
